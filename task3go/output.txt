@@ -1,0 +1,7 @@
+ARRAY 3 5 one two three
+FORWARDLIST 3 first second third
+DOUBLELIST 3 first second third
+STACK 3 first second third
+QUEUE 3 first second third
+HASHA 8 2 2 key1 100 3 key2 200
+HASH 8 2 2 key1 100 3 key2 200
