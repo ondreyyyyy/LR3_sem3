@@ -1,0 +1,52 @@
+#ifndef HASHADDRESS_HPP
+#define HASHADDRESS_HPP
+
+#include <string>
+
+using namespace std;
+
+class HANode {
+private:
+    string key;
+    int data;
+    bool isDeleted;
+    bool isEmpty;
+public:
+    friend class HashA;
+    HANode();
+    HANode(const string& key, const int& data);
+    [[nodiscard]] auto getKey() const -> string;
+    [[nodiscard]] auto getData() const -> int;
+    [[nodiscard]] auto getIsDeleted() const -> bool;
+    [[nodiscard]] auto getIsEmpty() const -> bool;
+};
+
+class hashaFunc {
+private:
+    const int hashPrime = 47;
+public:
+    auto operator()(const string& key, const int& capacity) const -> int;
+};
+
+class HashA {
+private:
+    hashaFunc hfA;
+    void rehash();
+    int size;
+    const int initCapacity = 8;
+    const double fillFactor = 0.75;
+    HANode* table;
+    int capacity;
+public:
+    HashA();
+    ~HashA();
+    [[nodiscard]] auto getTable() const -> HANode*;
+    [[nodiscard]] auto getCapacity() const -> int;
+
+    void addElementA(const string& key, const int& data);
+    [[nodiscard]] auto findElementA(const string& key) const -> int;
+    void deleteElementA(const string& key);
+    void printHashTableA() const;
+};
+
+#endif
